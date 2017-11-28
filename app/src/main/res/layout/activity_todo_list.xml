@@ -25,13 +25,12 @@
         <TextView
             android:id="@+id/emptyToDoList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Congrats!
-You have no projects in
-your to-do list!"
+            android:layout_height="wrap_content"
+            android:text="Congrats!\nYou have no projects in\nyour to-do list!"
             android:textAlignment="center"
             android:textSize="24dp"
             android:paddingVertical="40dp"
+            android:paddingLeft="50dp"
             android:visibility="invisible"
             />
     </LinearLayout>

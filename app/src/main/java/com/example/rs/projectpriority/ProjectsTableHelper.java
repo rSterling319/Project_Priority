@@ -106,4 +106,29 @@ public class ProjectsTableHelper extends ProjectPriorityDbHelper {
 
         return projects;
     }
+
+    //To-Do list stuffs
+    public HashMap<String,Integer> getToDoList() {
+        String name;
+        Integer id;
+        HashMap<String, Integer> toDoList = new HashMap<>();
+
+        String selectQuery = "SELECT " + ProjectsTableContract.ProjectsEntry._ID +", " +
+                ProjectsTableContract.ProjectsEntry.COLUMN_NAME + " FROM " +
+                ProjectsTableContract.ProjectsEntry.TABLE_NAME + " WHERE " +
+                ProjectsTableContract.ProjectsEntry.COLUMN_TODO + " =?";
+
+        Cursor c = db.rawQuery(selectQuery,new String[]{"1"});
+        if(c != null){
+            c.moveToFirst();
+            while(c.isAfterLast() == false){
+                name = c.getString(c.getColumnIndex(ProjectsTableContract.ProjectsEntry.COLUMN_NAME));
+                id = c.getInt(c.getColumnIndex(ProjectsTableContract.ProjectsEntry._ID));
+                toDoList.put(name,id);
+                c.moveToNext();
+            }
+        }
+
+        return toDoList;
+    }
 }
