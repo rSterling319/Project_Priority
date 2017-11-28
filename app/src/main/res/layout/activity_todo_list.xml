@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.rs.projectpriority.DisplayToDoListActivity"
+    android:id="@+id/displayToDoList"
+    >
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <ListView
+            android:id="@+id/toDoList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="4dp"
+            android:visibility="invisible"
+            >
+        </ListView>
+        <TextView
+            android:id="@+id/emptyToDoList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Congrats!
+You have no projects in
+your to-do list!"
+            android:textAlignment="center"
+            android:textSize="24dp"
+            android:paddingVertical="40dp"
+            android:visibility="invisible"
+            />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
