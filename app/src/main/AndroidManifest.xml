@@ -31,6 +31,11 @@
             android:parentActivityName=".MainActivity"
             android:label="Notes">
         </activity>
+        <activity
+            android:name=".DisplayToDoListActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Your To-Do List">
+        </activity>
 
     </application>
 
