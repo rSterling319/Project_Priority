@@ -29,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //go to to do list list
+    public void goToToDoListView(View view) {
+        Intent intent = new Intent(this,DisplayToDoListActivity.class);
+        startActivity(intent);
+    }
+
 
 
     //FIXME MENU stuff
@@ -53,4 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
