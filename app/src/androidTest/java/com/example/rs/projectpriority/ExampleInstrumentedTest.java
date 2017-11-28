@@ -10,6 +10,10 @@ import android.support.v4.content.ContextCompat;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.nio.file.ProviderNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import static org.junit.Assert.*;
 
 /**
@@ -53,8 +57,41 @@ public class ExampleInstrumentedTest {
     }
 
     @Test
-    public void testDB(){
+    public void testDB_projectsHelper_getAllProjects(){
         ProjectsTableHelper dbHelper = new ProjectsTableHelper(context(), true);
+
+        ArrayList<Project> projArray = new ArrayList<>();
+        for(int i = 0; i<10; i++){
+            Project temp = new Project();
+            temp.setToDoList(true);
+            temp.setDeadline("11/22/2017");
+            temp.setProgress(100);
+            temp.setName("Project"+i);
+            projArray.add(temp);
+        }
+
+        for(Project proj : projArray){
+            dbHelper.newProject(proj);
+        }
+
+        HashMap<String, Integer> projects = new HashMap<>();
+        projects = dbHelper.getAllProjects();
+
+        assertEquals(projects.size(), 10);
+
+
+
+    }
+
+    @Test
+    public void testDateConversion(){
+
+        Project project = new Project();
+
+        project.setDeadline("11/11/2017");
+        assertEquals(project.getDeadline_asString(),"11/11/2017");
+        assertArrayEquals(new int[]{11,11,2017},project.getDeadline_asIntAR());
+
     }
 
     @Test
