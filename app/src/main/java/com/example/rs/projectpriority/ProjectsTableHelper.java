@@ -29,6 +29,7 @@ public class ProjectsTableHelper extends ProjectPriorityDbHelper {
         values.put(ProjectsTableContract.ProjectsEntry.COLUMN_NAME, project.getName());
         values.put(ProjectsTableContract.ProjectsEntry.COLUMN_PROGRESS, project.getProgress());
         values.put(ProjectsTableContract.ProjectsEntry.COLUMN_DEADLINE, project.getDeadline_asString());
+        values.put(ProjectsTableContract.ProjectsEntry.COLUMN_TODO, project.getToDoList()? 1 : 0);//1 for true 0 for false
 
 
         //FIXME: I think i may be getting an exception here on update table, that's why it creates two??
@@ -45,6 +46,7 @@ public class ProjectsTableHelper extends ProjectPriorityDbHelper {
         values.put(ProjectsTableContract.ProjectsEntry.COLUMN_NAME, project.getName());
         values.put(ProjectsTableContract.ProjectsEntry.COLUMN_PROGRESS, project.getProgress());
         values.put(ProjectsTableContract.ProjectsEntry.COLUMN_DEADLINE, project.getDeadline_asString());
+        values.put(ProjectsTableContract.ProjectsEntry.COLUMN_TODO, project.getToDoList()? 1 : 0);//1 for true 0 for false
 
         try{
             db.insert(ProjectsTableContract.ProjectsEntry.TABLE_NAME, null, values);
@@ -61,6 +63,7 @@ public class ProjectsTableHelper extends ProjectPriorityDbHelper {
         String name;
         int progress;
         String deadline;
+        Boolean todolist;
 
         String selectQuery = "SELECT * FROM " + ProjectsTableContract.ProjectsEntry.TABLE_NAME +
                 " WHERE " + ProjectsTableContract.ProjectsEntry._ID + " = ?";
@@ -71,8 +74,10 @@ public class ProjectsTableHelper extends ProjectPriorityDbHelper {
         name = c.getString(c.getColumnIndex(ProjectsTableContract.ProjectsEntry.COLUMN_NAME));
         progress = c.getInt(c.getColumnIndex(ProjectsTableContract.ProjectsEntry.COLUMN_PROGRESS));
         deadline = c.getString(c.getColumnIndex(ProjectsTableContract.ProjectsEntry.COLUMN_DEADLINE));
-        Log.e(TAG,"id = "+id + "\nname = "+name +"\nprogress = "+progress);
-        Project project = new Project(id, name, progress, deadline);
+        todolist = (c.getInt(c.getColumnIndex(ProjectsTableContract.ProjectsEntry.COLUMN_TODO))==1)? true : false; //if one return true etc.
+
+        Log.e(TAG,"id = "+id + "\nname = "+name +"\nprogress = "+progress+"\ntodolist= " +todolist);
+        Project project = new Project(id, name, progress, deadline, todolist);
         return project;
     }
 

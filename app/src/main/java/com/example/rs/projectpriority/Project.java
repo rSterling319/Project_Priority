@@ -10,19 +10,23 @@ public class Project {
     private String name;
     private int progress;
     private String deadline;
+    private Boolean onToDoList;
 
     Project(){
         id = null;
         name="New Project";
+        progress = 0;
+        onToDoList = false;
     };
     Project(String _name){
         name = _name;
     }
-    Project(Integer _id, String _name, int _progress, String _deadline){
+    Project(Integer _id, String _name, int _progress, String _deadline, Boolean _onToDoList){
         id = _id;
         name = _name;
         progress = _progress;
         deadline = _deadline;
+        onToDoList = _onToDoList;
     }
 
     public void setId(Integer _id){id=_id;}
@@ -33,6 +37,7 @@ public class Project {
         progress = _progress;
     }
     public void setDeadline(String _deadline){deadline=_deadline;}
+    public void setToDoList(Boolean _onToDoList){onToDoList =_onToDoList;}
 
     public Integer getId(){return id;}
     public String getName(){
@@ -50,4 +55,7 @@ public class Project {
         return m_d_y;}
     public String getDeadline_asString(){return deadline;}
 
+    public boolean getToDoList() {
+        return onToDoList;
+    }
 }

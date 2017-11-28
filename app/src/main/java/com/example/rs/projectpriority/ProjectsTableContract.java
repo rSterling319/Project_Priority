@@ -14,6 +14,7 @@ public class ProjectsTableContract {
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_PROGRESS = "progress";
         public static final String COLUMN_DEADLINE = "deadline";
+        public static final String COLUMN_TODO = "todo";
 
 
     }
@@ -23,7 +24,8 @@ public class ProjectsTableContract {
              ProjectsEntry._ID + " INTEGER PRIMARY KEY, " +
              ProjectsEntry.COLUMN_NAME + " TEXT, " +
              ProjectsEntry.COLUMN_PROGRESS + " INTEGER, " +
-             ProjectsEntry.COLUMN_DEADLINE + " TEXT)";
+             ProjectsEntry.COLUMN_DEADLINE + " TEXT, " +
+             ProjectsEntry.COLUMN_TODO + " INTEGER)";
 
     public static final String SQL_DELETE_PROJECTS_TABLE =
             "DROP TABLE IF EXISTS " + ProjectsEntry.TABLE_NAME;

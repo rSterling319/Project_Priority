@@ -38,7 +38,7 @@
                 android:layout_marginLeft="16dp"
                 />
             <Button
-                android:text="To Do List"
+                android:text="To-Do List"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".50"

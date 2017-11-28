@@ -10,11 +10,15 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
@@ -26,13 +30,18 @@ public class ProjectActivity extends AppCompatActivity {
     ProjectsTableHelper dbHelper;
 
     private EditText projName=null;
+    //seekbar
     private static SeekBar seekBar;
     private static TextView seekBarProgress;
-
+    //date picker
     private static DatePicker datePicker;
     private static Calendar calendar;
     private static Button dateButton;
     int [] dateAsInt; // month, day, year
+
+    //to-do switch
+    private TextView switchText;
+    private Switch aSwitch;
 
     private String TAG = "ProjectActivity";
 
@@ -43,11 +52,6 @@ public class ProjectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project);
-
-
-        projectSeekBar();
-        projectNameText();
-
     }
 
     @Override
@@ -58,6 +62,12 @@ public class ProjectActivity extends AppCompatActivity {
         dateButton = (Button) findViewById(R.id.dateButton);
         calendar = Calendar.getInstance();
 
+        aSwitch = (Switch) findViewById(R.id.toDoSwitch);
+        switchText = (TextView) findViewById(R.id.switchText);
+
+        projectSeekBar();
+        projectNameText();
+        projectOnToDoList();
 
         Intent intent = getIntent();
         int id = intent.getIntExtra("projectID", -1);
@@ -68,6 +78,7 @@ public class ProjectActivity extends AppCompatActivity {
             Log.e(TAG, "project ID = " + project.getId());
             setTitle(project.getName());
             showDate(calendar.get(Calendar.MONTH)+1,calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.YEAR));
+            setSwitch(project.getToDoList());
         }
         else{
             project = dbHelper.getProject((Integer) id);
@@ -76,6 +87,7 @@ public class ProjectActivity extends AppCompatActivity {
             seekBar.setProgress(project.getProgress());
             dateAsInt = project.getDeadline_asIntAR();
             showDate(dateAsInt[0],dateAsInt[1],dateAsInt[2]);
+            setSwitch(project.getToDoList());
 
         }
 
@@ -172,6 +184,29 @@ public class ProjectActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    public void projectOnToDoList(){
+
+        aSwitch.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener(){
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+                        setSwitch(isChecked);
+                        Log.e(TAG, "Switch: " + isChecked);
+                    }
+                });
+    }
+
+    public void setSwitch(Boolean onToDoList){
+        if(onToDoList){
+            switchText.setText("yup");
+        }
+        else{
+            switchText.setText("nope");
+        }
+        project.setToDoList(onToDoList);
+        aSwitch.setChecked(onToDoList);
     }
 
     @SuppressWarnings("deprecation")

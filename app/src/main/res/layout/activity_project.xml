@@ -31,12 +31,14 @@
             <Switch
                 android:id="@+id/toDoSwitch"
                 android:layout_weight=".8"
+                android:switchMinWidth="56dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="On To-Do List"
                 android:textSize="20dp"
                 />
             <TextView
+                android:id="@+id/switchText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".2"

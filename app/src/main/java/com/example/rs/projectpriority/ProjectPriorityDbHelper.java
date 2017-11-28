@@ -15,7 +15,7 @@ import static com.example.rs.projectpriority.ProjectsTableContract.SQL_DELETE_PR
 
 public class ProjectPriorityDbHelper extends SQLiteOpenHelper {
     //if database schema is changed, increment database version
-    public static final int DATABASE_VERSION = 14;
+    public static final int DATABASE_VERSION = 15;
     public static final String DATABASE_NAME = "ProjectPriority.db";
 
     public ProjectPriorityDbHelper(Context context){
