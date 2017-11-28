@@ -29,14 +29,9 @@ public class ProjectsTableHelper extends ProjectPriorityDbHelper {
         values.put(ProjectsTableContract.ProjectsEntry.COLUMN_NAME, project.getName());
         values.put(ProjectsTableContract.ProjectsEntry.COLUMN_PROGRESS, project.getProgress());
         values.put(ProjectsTableContract.ProjectsEntry.COLUMN_DEADLINE, project.getDeadline_asString());
-        values.put(ProjectsTableContract.ProjectsEntry.COLUMN_TODO, project.getToDoList()? 1 : 0);//1 for true 0 for false
-
-
-        //FIXME: I think i may be getting an exception here on update table, that's why it creates two??
-        try{
-            db.update(ProjectsTableContract.ProjectsEntry.TABLE_NAME, values, ProjectsTableContract.ProjectsEntry._ID + " = ?",
-                    new String[]{project.getId().toString()});
-        }catch (SQLException ex){
+        values.put(ProjectsTableContract.ProjectsEntry.COLUMN_TODO, project.getToDoList()? 1 : 0);//1 fo
+        if(db.update(ProjectsTableContract.ProjectsEntry.TABLE_NAME, values, ProjectsTableContract.ProjectsEntry._ID + " = ?",
+                    new String[]{project.getId().toString()})==0){
             newProject(project);
         }
     }
