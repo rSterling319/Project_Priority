@@ -18,9 +18,9 @@ public class ProjectsTableHelper extends ProjectPriorityDbHelper {
     SQLiteDatabase db;
     String TAG = "ProjectsTableHelper";
 
-    ProjectsTableHelper(Context context){
-        super(context);
-        pDbHelper = new ProjectPriorityDbHelper(context);
+    ProjectsTableHelper(Context context, boolean isTest){
+        super(context, isTest);
+        pDbHelper = new ProjectPriorityDbHelper(context, isTest);
         db = pDbHelper.getWritableDatabase();
     }
 

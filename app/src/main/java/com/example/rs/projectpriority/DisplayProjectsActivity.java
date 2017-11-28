@@ -35,7 +35,7 @@ public class DisplayProjectsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_projects);
 
-        dbHelper = new ProjectsTableHelper(this);
+        dbHelper = new ProjectsTableHelper(this, false);
         projects = dbHelper.getAllProjects();
 
         //Array list of keys from hashmap for the array list adapter

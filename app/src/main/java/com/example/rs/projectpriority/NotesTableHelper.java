@@ -19,9 +19,9 @@ public class NotesTableHelper extends ProjectPriorityDbHelper {
     String[] noteID = {"0"};
     String TAG = "NotesTableHelper";
 
-    public  NotesTableHelper(Context context){
-        super(context);
-        mDbHelper = new ProjectPriorityDbHelper(context);
+    public  NotesTableHelper(Context context, boolean isTest){
+        super(context, isTest);
+        mDbHelper = new ProjectPriorityDbHelper(context, isTest);
         db = mDbHelper.getWritableDatabase();
     }
 

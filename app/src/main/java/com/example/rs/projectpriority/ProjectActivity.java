@@ -57,7 +57,7 @@ public class ProjectActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        dbHelper = new ProjectsTableHelper(this);
+        dbHelper = new ProjectsTableHelper(this, false);
 
         dateButton = (Button) findViewById(R.id.dateButton);
         calendar = Calendar.getInstance();

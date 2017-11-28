@@ -27,7 +27,7 @@ public class NotesActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
 
-        dbHelper = new NotesTableHelper(this);
+        dbHelper = new NotesTableHelper(this, false);
 
         editText = (EditText) findViewById(R.id.notes);
 

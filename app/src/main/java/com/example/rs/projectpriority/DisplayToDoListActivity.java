@@ -40,7 +40,7 @@ public class DisplayToDoListActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
 
-        dbHelper = new ProjectsTableHelper(this);
+        dbHelper = new ProjectsTableHelper(this, false);
         toDoList = dbHelper.getToDoList();
 
         emptyListView = (TextView) findViewById(R.id.emptyToDoList);
