@@ -15,6 +15,6 @@ adding them to a to-do list and setting deadlines.
 </div>
 
 <table>
-<caption align="bottom">Main Activity</caption>
 <tr><td><img src="https://github.com/rSterling319/Project_Priority/blob/master/screen_grabs/main_activity.png" width="150"></td></tr>
+<caption align="center">Main Activity</caption>
 </table>
