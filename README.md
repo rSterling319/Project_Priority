@@ -10,6 +10,5 @@ adding them to a to-do list and setting deadlines.
 ## Screen Shots
 Main Activity|Project View
 ---|---
-  <img src="https://github.com/rSterling319/Project_Priority/blob/master/screen_grabs/main_activity.png" width="150">|
-  <img src="https://github.com/rSterling319/Project_Priority/blob/master/screen_grabs/project_view.png" width="150">
+  <img src="https://github.com/rSterling319/Project_Priority/blob/master/screen_grabs/main_activity.png" width="150">|<img src="https://github.com/rSterling319/Project_Priority/blob/master/screen_grabs/project_view.png" width="150">
 
