@@ -11,9 +11,9 @@
 
         />
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/toDoList_menu"
         android:orderInCategory="100"
-        android:title="Something else"
+        android:title="Go To To-Do List"
         app:showAsAction="never"
 
         />
