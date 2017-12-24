@@ -53,8 +53,10 @@ public class DisplayProjectsActivity extends AppCompatActivity {
             textView.setVisibility(View.GONE);
 
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-                    android.R.id.text1, values);
+//            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+//                    android.R.id.text1, values);
+
+            Cust_ListArrayAdapter adapter = new Cust_ListArrayAdapter(this, values);
 
             listView.setAdapter(adapter);
 
