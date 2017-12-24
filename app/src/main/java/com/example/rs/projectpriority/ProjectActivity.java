@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -44,6 +46,8 @@ public class ProjectActivity extends AppCompatActivity {
     //to-do switch
     private TextView switchText;
     private Switch aSwitch;
+    private LinearLayout toggle;
+    private ImageView img_toggle;
 
     private String TAG = "ProjectActivity";
 
@@ -63,6 +67,11 @@ public class ProjectActivity extends AppCompatActivity {
 
         dateButton = (Button) findViewById(R.id.dateButton);
         calendar = Calendar.getInstance();
+
+        toggle = (LinearLayout) findViewById(R.id.toggle_clk);
+        toggle.setVisibility(View.GONE);
+        img_toggle=(ImageView) findViewById(R.id.imgToggle);
+        img_toggle.setImageResource(R.mipmap.ic_add_black_24dp);
 
         aSwitch = (Switch) findViewById(R.id.toDoSwitch);
         switchText = (TextView) findViewById(R.id.switchText);
@@ -94,6 +103,11 @@ public class ProjectActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void toggle_contents(View v){
+        toggle.setVisibility(toggle.isShown() ? View.GONE : View.VISIBLE);
+        img_toggle.setImageResource(toggle.isShown() ? R.mipmap.ic_remove_black_24dp : R.mipmap.ic_add_black_24dp);
     }
 
     public void projectNameText(){
