@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Project Priority</string>
-    <string name="cost_prompt">Choose an Estimate</string>
 
+    <!--Cost DropDown-->
+    <string name="cost_prompt">Choose an Estimate</string>
     <string-array name="costs_array">
         <item>$0 - $100</item>
         <item>$101 - $200</item>
@@ -9,4 +10,5 @@
         <item>$501 - $1000</item>
         <item>$1000+</item>
     </string-array>
+
 </resources>

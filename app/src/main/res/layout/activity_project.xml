@@ -18,14 +18,56 @@
             android:inputType="textPersonName"
             android:hint="New Project"
             android:ems="10"
+            android:layout_margin="12dp"
+            android:textSize="20dp"
             />
+
+        <!--Details-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".10"
+            android:orientation="vertical"
+            android:background="@drawable/bottom_line"
+            android:layout_marginBottom="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:onClick="detail_toggle_contents">
+                <ImageView
+                    android:id="@+id/detailImgToggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".10"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_add_black_24dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".90"
+                    android:text="Details"
+                    android:textSize="25dp"
+                    />
+            </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/bottom_line"
+            android:id="@+id/details_drop"
+            >
+
+
     <LinearLayout
         android:layout_weight=".10"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!--To-Do-List-->
+        <!--On-To-Do-List-->
         <LinearLayout
             android:layout_weight=".10"
             android:layout_width="match_parent"
@@ -92,6 +134,27 @@
                 android:onClick="setDate"
                 android:textSize="20dp" />
         </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:background="@drawable/full_border"
+                >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Short Description"
+                android:textSize="16dp"
+                android:background="@drawable/bottom_line"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxLength="200"
+                android:hint="Enter Description Here"/>
+            </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
 
         <!--Costs-->
         <LinearLayout
@@ -99,7 +162,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".10"
             android:orientation="vertical"
-            android:background="@drawable/bottom_line">
+            android:background="@drawable/bottom_line"
+            android:layout_marginBottom="12dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -163,6 +227,7 @@
                     android:layout_gravity="center_horizontal"
                     android:entries="@array/costs_array"
                     android:textAlignment="center"
+                    android:spinnerMode="dialog"
                     />
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -199,7 +264,8 @@
             android:orientation="vertical"
             android:clickable="true"
             android:onClick="materials_toggle_contents"
-            android:background="@drawable/bottom_line">
+            android:background="@drawable/bottom_line"
+            android:layout_marginBottom="12dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -228,7 +294,53 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textMultiLine"
-                    android:scrollbars="vertical"/>
+                    android:scrollbars="vertical"
+                    android:hint="Enter Materials Here"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--Sub-Tasks-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".10"
+            android:orientation="vertical"
+            android:background="@drawable/bottom_line"
+            android:layout_marginBottom="12dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:onClick="sub_tasks_toggle_contents">
+                <ImageView
+                    android:id="@+id/subTask_tog_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".1"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_add_black_24dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".9"
+                    android:text="Sub-Tasks"
+                    android:textSize="25dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/subTask_drop">
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:dividerHeight="4dp">
+
+                </ListView>
+
             </LinearLayout>
         </LinearLayout>
 
@@ -237,7 +349,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight=".10"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/bottom_line"
+            android:layout_marginBottom="12dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

@@ -44,10 +44,14 @@ public class ProjectActivity extends AppCompatActivity {
     private TextView switchText;
     private Switch aSwitch;
     //Toggles
+    private LinearLayout detail_toggle;
+    private ImageView detail_img_toggle;
     private LinearLayout cost_toggle;
     private ImageView cost_img_toggle;
     private LinearLayout material_toggle;
     private ImageView material_img_toggle;
+    private LinearLayout subTask_toggle;
+    private ImageView subTask_img_toggle;
 
     private String TAG = "ProjectActivity";
 
@@ -76,6 +80,14 @@ public class ProjectActivity extends AppCompatActivity {
         material_toggle.setVisibility(View.GONE);
         material_img_toggle =(ImageView) findViewById(R.id.material_tog_img);
         material_img_toggle. setImageResource(R.mipmap.ic_add_black_24dp);
+        subTask_toggle = (LinearLayout) findViewById(R.id.subTask_drop);
+        subTask_toggle.setVisibility(View.GONE);
+        subTask_img_toggle = (ImageView) findViewById(R.id.subTask_tog_img);
+        subTask_img_toggle.setImageResource(R.mipmap.ic_add_black_24dp);
+        detail_toggle = (LinearLayout) findViewById(R.id.details_drop);
+        detail_toggle.setVisibility(View.GONE);
+        detail_img_toggle = (ImageView) findViewById(R.id.detailImgToggle);
+        detail_img_toggle.setImageResource(R.mipmap.ic_add_black_24dp);
 
 
         aSwitch = (Switch) findViewById(R.id.toDoSwitch);
@@ -110,6 +122,11 @@ public class ProjectActivity extends AppCompatActivity {
 
     }
 
+    public void detail_toggle_contents(View v){
+        detail_toggle.setVisibility(detail_toggle.isShown() ? View.GONE : View.VISIBLE);
+        detail_img_toggle.setImageResource(detail_toggle.isShown() ? R.mipmap.ic_remove_black_24dp : R.mipmap.ic_add_black_24dp);
+    }
+
     public void cost_toggle_contents(View v){
         cost_toggle.setVisibility(cost_toggle.isShown() ? View.GONE : View.VISIBLE);
         cost_img_toggle.setImageResource(cost_toggle.isShown() ? R.mipmap.ic_remove_black_24dp : R.mipmap.ic_add_black_24dp);
@@ -118,6 +135,11 @@ public class ProjectActivity extends AppCompatActivity {
     public void materials_toggle_contents(View v){
         material_toggle.setVisibility(material_toggle.isShown() ? View.GONE : View.VISIBLE);
         material_img_toggle.setImageResource(material_toggle.isShown() ? R.mipmap.ic_remove_black_24dp : R.mipmap.ic_add_black_24dp);
+    }
+
+    public void sub_tasks_toggle_contents(View v){
+        subTask_toggle.setVisibility(subTask_toggle.isShown() ? View.GONE : View.VISIBLE);
+        subTask_img_toggle.setImageResource(subTask_toggle.isShown() ? R.mipmap.ic_remove_black_24dp : R.mipmap.ic_add_black_24dp);
     }
 
     public void projectNameText(){
