@@ -11,4 +11,14 @@
         <item>$1000+</item>
     </string-array>
 
+    <string name="locations__prompt">Choose a Location</string>
+    <string-array name="locations__array">
+        <item>Kitchen</item>
+        <item>Yard</item>
+        <item>Office</item>
+        <item>Bathroom</item>
+        <item>Living Room</item>
+        <item>Dining Room</item>
+    </string-array>
+
 </resources>

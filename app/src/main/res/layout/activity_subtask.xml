@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/subTask_Name"
+            android:layout_weight=".10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPersonName"
+            android:hint="New Project Name"
+            android:ems="10"
+            android:textSize="20dp"
+            android:layout_marginVertical="14dp"
+            />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

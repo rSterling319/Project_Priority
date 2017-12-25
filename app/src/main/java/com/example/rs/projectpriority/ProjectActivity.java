@@ -336,4 +336,6 @@ public class ProjectActivity extends AppCompatActivity {
         dbHelper.close();
     }
 
+    public void toSubTaskView(View view) {
+    }
 }

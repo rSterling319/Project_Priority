@@ -49,9 +49,7 @@ public class DisplayToDoListActivity extends AppCompatActivity {
         ArrayList<String> values = new ArrayList<String>(toDoList.keySet());
         sort(values);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,
-                android.R.id.text1, values);
-
+        Cust_ListArrayAdapter adapter = new Cust_ListArrayAdapter(this, values);
         toDoListView.setAdapter(adapter);
 
         displayToDoList();

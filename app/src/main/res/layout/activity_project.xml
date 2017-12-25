@@ -118,27 +118,55 @@
             android:layout_height="match_parent"
             android:layout_weight=".10"
             android:orientation="horizontal"
-            android:paddingRight="16dp"
+            android:paddingHorizontal="10dp"
+            android:layout_marginVertical="10dp"
             >
             <TextView
                 android:layout_weight=".40"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Deadline"
                 android:textSize="20dp"
-                android:gravity="center"/>
+                android:gravity="center_vertical"/>
             <Button
                 android:id="@+id/dateButton"
                 android:layout_weight=".60"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:onClick="setDate"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:background="@drawable/bottom_line"
+                android:layout_marginHorizontal="10dp"/>
         </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginVertical="10dp"
+                android:paddingHorizontal="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".4"
+                    android:text="Location"
+                    android:textSize="20dp"/>
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".6"
+                    android:textSize="16dp"
+                    android:textAlignment="center"
+                    android:spinnerMode="dialog"
+                    android:prompt="@string/locations__prompt"
+                    android:entries="@array/locations__array"
+                    >
+
+                </Spinner>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="16dp"
+                android:layout_margin="10dp"
                 android:orientation="vertical"
                 android:background="@drawable/full_border"
                 >
@@ -154,6 +182,7 @@
                 android:maxLength="200"
                 android:hint="Enter Description Here"/>
             </LinearLayout>
+
         </LinearLayout>
         </LinearLayout>
 
@@ -226,6 +255,7 @@
                     android:layout_marginRight="10dp"
                     android:textSize="16dp"
                     android:layout_gravity="center_horizontal"
+                    android:prompt="@string/cost_prompt"
                     android:entries="@array/costs_array"
                     android:textAlignment="center"
                     android:spinnerMode="dialog"
@@ -336,44 +366,25 @@
                 android:orientation="vertical"
                 android:id="@+id/subTask_drop">
                 <ListView
+                    android:id="@+id/subTask_ListView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:dividerHeight="8dp"
                     android:divider="@color/colorPrimary"
                     android:visibility="invisible">
-
                 </ListView>
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <!--Location-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight=".10"
-            android:orientation="vertical"
-            android:background="@drawable/bottom_line"
-            android:layout_marginBottom="12dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".1"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/ic_add_black_24dp"
-                    />
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".9"
-                    android:text="Location"
-                    android:textSize="25dp"/>
+                    android:layout_height="match_parent"
+                    android:text="New Sub-Task"
+                    android:textSize="20dp"
+                    android:clickable="true"
+                    android:onClick="toSubTaskView"
+                    android:background="@drawable/full_border"/>
+
             </LinearLayout>
         </LinearLayout>
+
 
 
 
