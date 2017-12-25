@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
@@ -68,6 +69,8 @@ public class ProjectActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
         dbHelper = new ProjectsTableHelper(this, false);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         dateButton = (Button) findViewById(R.id.dateButton);
         calendar = Calendar.getInstance();
@@ -170,8 +173,22 @@ public class ProjectActivity extends AppCompatActivity {
     public void projectSeekBar(){
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         seekBarProgress = (TextView) findViewById(R.id.seekBarProgress);
-        seekBarProgress.setText("Not Started");
-
+        int prog = seekBar.getProgress();
+        if(prog < 15){
+            seekBarProgress.setText("Not Started");
+        }
+        else if(prog<35){
+            seekBarProgress.setText("25% Done");
+        }
+        else if(prog<65){
+            seekBarProgress.setText("50% Done");
+        }
+        else if(prog<90){
+            seekBarProgress.setText("75% Done");
+        }
+        else{
+            seekBarProgress.setText("Complete!");
+        }
 
         seekBar.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
