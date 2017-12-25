@@ -16,10 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textPersonName"
-            android:hint="New Project"
+            android:hint="New Project Name"
             android:ems="10"
-            android:layout_margin="12dp"
             android:textSize="20dp"
+            android:layout_marginVertical="14dp"
             />
 
         <!--Details-->
@@ -338,7 +338,9 @@
                 <ListView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:dividerHeight="4dp">
+                    android:dividerHeight="8dp"
+                    android:divider="@color/colorPrimary"
+                    android:visibility="invisible">
 
                 </ListView>
 
